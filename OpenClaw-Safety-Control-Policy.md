@@ -2,7 +2,7 @@
 
 **版本**：1.0.0  
 **生效日期**：2026-03-18  
-**控制者**：Hillman  
+**控制者**：Hillman Tam 
 **適用範圍**：所有 OpenClaw 操作、工具、自動化腳本
 
 ---
@@ -23,7 +23,7 @@
 
 - ✅ 允許：新建文件、更新配置、新增功能
 - ❌ 禁止：`rm -rf /`、`dd`、修改系統核心文件
-- ⚠️ 需確認：修改 `/Users/hillman` 以外區域、刪除文件
+- ⚠️ 需確認：修改 `/Users/username` 以外區域、刪除文件
 
 ---
 
@@ -160,34 +160,34 @@ mkdir ~/.openclaw/workspace/backup/
 
 ```
 ┌─────────────────────────────────────────────┐
-│  AI 檢測到黃線操作                          │
+│  AI 檢測到黃線操作                             │
 └─────────────────┬───────────────────────────┘
                   ↓
 ┌─────────────────────────────────────────────┐
-│  AI 發送確認請求                             │
+│  AI 發送確認請求                              │
 │  ┌───────────────────────────────────────┐  │
-│  │ 🟡 需要確認：執行此操作？              │  │
+│  │ 🟡 需要確認：執行此操作？                 │  │
 │  │                                       │  │
-│  │ 操作：curl https://example.com/setup  │  │
-│  │ 解釋：安裝 OpenClaw 配置腳本           │  │
+│  │ 操作：curl https://example.com/setup   │  │
+│  │ 解釋：安裝 OpenClaw 配置腳本             │  │
 │  │                                       │  │
-│  │ [✅ 批准]  [❌ 拒絕]  [⚠️ 修改後批准]  │  │
+│  │ [✅ 批准]  [❌ 拒絕]  [⚠️ 修改後批准]    │  │
 │  └───────────────────────────────────────┘  │
 └─────────────────┬───────────────────────────┘
                   ↓
 ┌─────────────────────────────────────────────┐
-│  控制者回應                                 │
-│  • ✅ → AI 執行操作                         │
-│  • ❌ → AI 放棄操作                         │
-│  • ⚠️ → AI 詢問修改方案，重新確認           │
+│  控制者回應                                   │
+│  • ✅ → AI 執行操作                          │
+│  • ❌ → AI 放棄操作                          │
+│  • ⚠️ → AI 詢問修改方案，重新確認               │
 └─────────────────┬───────────────────────────┘
                   ↓
 ┌─────────────────────────────────────────────┐
-│  AI 記錄確認日誌                            │
-│  - 確認者：Hillman                         │
-│  - 確認時間：2026-03-18 10:30:45           │
-│  - 確認方式：Telegram                      │
-│  - 操作結果：成功                          │
+│  AI 記錄確認日誌                              │
+│  - 確認者：username                          │
+│  - 確認時間：2026-03-18 10:30:45              │
+│  - 確認方式：Telegram                         │
+│  - 操作結果：成功                              │
 └─────────────────────────────────────────────┘
 ```
 
@@ -214,7 +214,7 @@ mkdir ~/.openclaw/workspace/backup/
   "action": "npm_install",
   "command": "npm install -g openclaw",
   "requestId": "req-abc123",
-  "approver": "Hillman",
+  "approver": "username",
   "approvalTime": "2026-03-18T10:30:45+08:00",
   "approvalMethod": "telegram",
   "approvalMessageId": 2845,
@@ -323,11 +323,11 @@ clamscan /path/to/attachment.exe
 #### ✅ **允許的操作**
 ```python
 # 允許：寫入工作區文件
-with open('/Users/hillman/.openclaw/workspace/config.json', 'w') as f:
+with open('/Users/username/.openclaw/workspace/config.json', 'w') as f:
     json.dump(config, f)
 
 # 允許：創建日誌記錄
-with open('/Users/hillman/.openclaw/logs/action.log', 'a') as f:
+with open('/Users/username/.openclaw/logs/action.log', 'a') as f:
     f.write(f"[{datetime.now()}] Task completed\n")
 
 # 允許：調用本地 API
@@ -376,7 +376,7 @@ BLOCKED_COMMANDS = {'rm -rf', 'dd if=', 'mkfs', 'chmod 777'}
 
 # 日誌配置
 logging.basicConfig(
-    filename='/Users/hillman/.openclaw/logs/code_audit.log',
+    filename='/Users/username/.openclaw/logs/code_audit.log',
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
@@ -565,7 +565,7 @@ openclaw security audit --deep --fix
 
 ---
 
-**批准者**：Hillman  
+**批准者**：username  
 **生效日期**：2026-03-18  
 **審計週期**：每日/每週/每月  
 **違規處理**：立即剷除 + 深度審計 + 恢復需確認
